@@ -15,9 +15,9 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Countries\" />
+	  <ProjectReference Include="..\WorldCities.Domain\WorldCities.Domain.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\WorldCities.Domain\WorldCities.Domain.csproj" />
+	  <Folder Include="Cities\Commands\DeleteCity\" />
 	</ItemGroup>
 </Project>
