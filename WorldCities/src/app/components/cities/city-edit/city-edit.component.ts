@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
@@ -6,7 +6,7 @@ import { City } from '../../../models/city';
 import { Country } from '../../../models/country';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../../../environments/environment';
-import { map } from 'rxjs';
+import { map, takeUntil, Subject } from 'rxjs';
 import { BaseFormComponent } from '../../base-form/base-form.component';
 import { ApiResult } from '../../../services/base.service';
 import { CityService } from '../../../services/city.service';
@@ -20,16 +20,22 @@ import { CityService } from '../../../services/city.service';
   styleUrls: ['./city-edit.component.css']
 })
 export class CityEditComponent
-  extends BaseFormComponent implements OnInit {
+  extends BaseFormComponent implements OnInit, OnDestroy {
   // the view title
   title?: string;
 
   // the city object to edit or create
   city?: City;
 
+  // the city object id, as fetched from the active route:
+  // It's NULL when we're adding a new city,
+  // and not NULL when we're editing an existing one.
   id?: number;
 
-  countries?: Country[];
+  // the countries observable for the select (using async pipe)
+  countries?: Observable<Country[]>;
+
+  private destroySubject = new Subject();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -52,7 +58,37 @@ export class CityEditComponent
       countryId: new FormControl('', Validators.required)
     }, null, this.isDupeCity());
 
+    // react to form changes
+    this.form.valueChanges
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe(() => {
+        if (!this.form.dirty) {
+          this.log("Form Model has been loaded.");
+        }
+        else {
+          this.log("Form was updated by the user.");
+        }
+      });
+
+    // react to changes in the form.name control
+    this.form.get("name")!.valueChanges
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe(() => {
+        if (!this.form.dirty) {
+          this.log("Name has been loaded with initial values.");
+        }
+        else {
+          this.log("Name was updated by the user.");
+        }
+      });
+
     this.loadData();
+  }
+
+  log(str: string) {
+    console.log("["
+      + new Date().toLocaleString()
+      + "] " + str + "<br />");
   }
 
   loadData() {
@@ -84,16 +120,14 @@ export class CityEditComponent
 
   loadCountries() {
     // fetch all the countries from the server
-    this.cityService.getCountries(
+    this.countries = this.cityService.getCountries(
       0,
       9999,
       "name",
       "asc",
       null,
       null,
-    ).subscribe(result => {
-      this.countries = result.data;
-    }, error => console.error(error));
+    ).pipe(map(x => x.data));
   }
 
   onSubmit() {
@@ -146,6 +180,13 @@ export class CityEditComponent
         return (result ? { isDupeCity: true } : null);
       }));
     }
+  }
+
+  ngOnDestroy() {
+    // emit a value with the takeUntil notifier
+    this.destroySubject.next(true);
+    // complete the subject
+    this.destroySubject.complete();
   }
 }
 

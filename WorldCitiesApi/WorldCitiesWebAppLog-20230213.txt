@@ -1,0 +1,122 @@
+2023-02-13 19:00:57.578 +02:00 [INF] Now listening on: https://localhost:7025
+2023-02-13 19:00:57.619 +02:00 [INF] Now listening on: http://localhost:5025
+2023-02-13 19:00:57.622 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-13 19:00:57.623 +02:00 [INF] Hosting environment: Development
+2023-02-13 19:00:57.623 +02:00 [INF] Content root path: C:\Users\User\source\repos\WorldCities\WorldCitiesApi\
+2023-02-13 19:00:58.980 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/index.html - -
+2023-02-13 19:00:59.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui.css - -
+2023-02-13 19:00:59.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui-bundle.js - -
+2023-02-13 19:00:59.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui-standalone-preset.js - -
+2023-02-13 19:00:59.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_vs/browserLink - -
+2023-02-13 19:00:59.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - -
+2023-02-13 19:00:59.245 +02:00 [INF] The file /swagger-ui-bundle.js was not modified
+2023-02-13 19:00:59.245 +02:00 [INF] The file /swagger-ui.css was not modified
+2023-02-13 19:00:59.245 +02:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2023-02-13 19:00:59.245 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - - - 200 11997 application/javascript;+charset=utf-8 9.2221ms
+2023-02-13 19:00:59.245 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/index.html - - - 200 - text/html;charset=utf-8 269.8340ms
+2023-02-13 19:00:59.246 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui-standalone-preset.js - - - 304 - application/javascript 11.7367ms
+2023-02-13 19:00:59.246 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui-bundle.js - - - 304 - application/javascript 11.7568ms
+2023-02-13 19:00:59.246 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui.css - - - 304 - text/css 11.7525ms
+2023-02-13 19:00:59.273 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.4560ms
+2023-02-13 19:00:59.441 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - -
+2023-02-13 19:00:59.465 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/favicon-32x32.png - -
+2023-02-13 19:00:59.465 +02:00 [INF] The file /favicon-32x32.png was not modified
+2023-02-13 19:00:59.465 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/favicon-32x32.png - - - 304 - image/png 0.6313ms
+2023-02-13 19:00:59.583 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 141.6667ms
+2023-02-13 19:01:03.153 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/api/City/GetAllCities?pageIndex=0&pageSize=10 - -
+2023-02-13 19:01:03.162 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CityController.GetAllCities (WorldCitiesApi)'
+2023-02-13 19:01:03.198 +02:00 [INF] Route matched with {action = "GetAllCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorldCitiesApi.Data.ApiResult`1[WorldCitiesApi.Models.CityDTO]]] GetAllCities(Int32, Int32, System.String, System.String, System.String, System.String) on controller WorldCitiesApi.Controllers.CityController (WorldCitiesApi).
+2023-02-13 19:01:04.168 +02:00 [WRN] No store type was specified for the decimal property 'Lat' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-13 19:01:04.169 +02:00 [WRN] No store type was specified for the decimal property 'Lon' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-13 19:01:04.305 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-13 19:01:05.037 +02:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Cities] AS [c]
+2023-02-13 19:01:05.119 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-02-13 19:01:05.120 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-02-13 19:01:05.240 +02:00 [INF] Executed DbCommand (33ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t].[CountryId], [c0].[Name] AS [CountryName], [t].[Name_ASCII], [t].[Lat], [t].[Lon]
+FROM (
+    SELECT [c].[Id], [c].[CountryId], [c].[Lat], [c].[Lon], [c].[Name], [c].[Name_ASCII]
+    FROM [Cities] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Countries] AS [c0] ON [t].[CountryId] = [c0].[Id]
+2023-02-13 19:01:05.253 +02:00 [INF] Executing ObjectResult, writing value of type 'WorldCitiesApi.Data.ApiResult`1[[WorldCitiesApi.Models.CityDTO, WorldCitiesApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-02-13 19:01:05.265 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CityController.GetAllCities (WorldCitiesApi) in 2063.0824ms
+2023-02-13 19:01:05.266 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CityController.GetAllCities (WorldCitiesApi)'
+2023-02-13 19:01:05.273 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/api/City/GetAllCities?pageIndex=0&pageSize=10 - - - 200 - application/json;+charset=utf-8 2120.4869ms
+2023-02-13 19:01:27.257 +02:00 [INF] Now listening on: https://localhost:7025
+2023-02-13 19:01:27.280 +02:00 [INF] Now listening on: http://localhost:5025
+2023-02-13 19:01:27.283 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-13 19:01:27.283 +02:00 [INF] Hosting environment: Development
+2023-02-13 19:01:27.283 +02:00 [INF] Content root path: C:\Users\User\source\repos\WorldCities\WorldCitiesApi\
+2023-02-13 19:01:27.581 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger - -
+2023-02-13 19:01:27.642 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger - - - 301 0 - 62.2562ms
+2023-02-13 19:01:27.646 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/index.html - -
+2023-02-13 19:01:27.728 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/index.html - - - 200 - text/html;charset=utf-8 82.6037ms
+2023-02-13 19:01:27.732 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui-standalone-preset.js - -
+2023-02-13 19:01:27.732 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui-bundle.js - -
+2023-02-13 19:01:27.732 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - -
+2023-02-13 19:01:27.734 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - - - 200 11997 application/javascript;+charset=utf-8 2.0159ms
+2023-02-13 19:01:27.737 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_vs/browserLink - -
+2023-02-13 19:01:27.750 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-02-13 19:01:27.750 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-02-13 19:01:27.750 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 18.6458ms
+2023-02-13 19:01:27.750 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 18.6822ms
+2023-02-13 19:01:27.753 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 16.5476ms
+2023-02-13 19:01:28.224 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - -
+2023-02-13 19:01:28.306 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 82.3093ms
+2023-02-13 19:01:33.128 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/api/City/GetCityDetails/1 - -
+2023-02-13 19:01:33.131 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CityController.GetCityDetails (WorldCitiesApi)'
+2023-02-13 19:01:33.150 +02:00 [INF] Route matched with {action = "GetCityDetails", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorldCities.Application.Cities.Queries.GetCityDetails.CityDetailsVm]] GetCityDetails(Int32) on controller WorldCitiesApi.Controllers.CityController (WorldCitiesApi).
+2023-02-13 19:01:33.328 +02:00 [INF] Notes Request: GetCityDetailsQuery "00000000-0000-0000-0000-000000000000" {"Id":1,"$type":"GetCityDetailsQuery"}
+2023-02-13 19:01:33.728 +02:00 [WRN] No store type was specified for the decimal property 'Lat' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-13 19:01:33.728 +02:00 [WRN] No store type was specified for the decimal property 'Lon' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-13 19:01:33.820 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-13 19:01:34.198 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CountryId], [c].[Lat], [c].[Lon], [c].[Name], [c].[Name_ASCII]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__request_Id_0
+2023-02-13 19:01:34.258 +02:00 [INF] Executing OkObjectResult, writing value of type 'WorldCities.Application.Cities.Queries.GetCityDetails.CityDetailsVm'.
+2023-02-13 19:01:34.265 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CityController.GetCityDetails (WorldCitiesApi) in 1110.6438ms
+2023-02-13 19:01:34.265 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CityController.GetCityDetails (WorldCitiesApi)'
+2023-02-13 19:01:34.268 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/api/City/GetCityDetails/1 - - - 200 - application/json;+charset=utf-8 1139.9447ms
+2023-02-13 19:02:48.054 +02:00 [INF] Now listening on: https://localhost:7025
+2023-02-13 19:02:48.096 +02:00 [INF] Now listening on: http://localhost:5025
+2023-02-13 19:02:48.100 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-13 19:02:48.100 +02:00 [INF] Hosting environment: Development
+2023-02-13 19:02:48.100 +02:00 [INF] Content root path: C:\Users\User\source\repos\WorldCities\WorldCitiesApi\
+2023-02-13 19:02:49.173 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/index.html - -
+2023-02-13 19:02:49.483 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_vs/browserLink - -
+2023-02-13 19:02:49.483 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - -
+2023-02-13 19:02:49.496 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/index.html - - - 200 - text/html;charset=utf-8 325.7520ms
+2023-02-13 19:02:49.496 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - - - 200 11997 application/javascript;+charset=utf-8 12.6270ms
+2023-02-13 19:02:49.511 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.8052ms
+2023-02-13 19:02:49.683 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - -
+2023-02-13 19:02:49.828 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 145.6235ms
+2023-02-13 19:02:54.564 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/api/Country/GetAllCountries?pageIndex=0&pageSize=10 - -
+2023-02-13 19:02:54.574 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CountryController.GetAllCountries (WorldCitiesApi)'
+2023-02-13 19:02:54.599 +02:00 [INF] Route matched with {action = "GetAllCountries", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorldCitiesApi.Data.ApiResult`1[WorldCitiesApi.Models.CountryDTO]]] GetAllCountries(Int32, Int32, System.String, System.String, System.String, System.String) on controller WorldCitiesApi.Controllers.CountryController (WorldCitiesApi).
+2023-02-13 19:02:55.517 +02:00 [WRN] No store type was specified for the decimal property 'Lat' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-13 19:02:55.518 +02:00 [WRN] No store type was specified for the decimal property 'Lon' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-13 19:02:55.658 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-13 19:02:56.398 +02:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Countries] AS [c]
+2023-02-13 19:02:56.486 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-02-13 19:02:56.487 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-02-13 19:02:56.617 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[ISO2], [c].[ISO3], (
+    SELECT COUNT(*)
+    FROM [Cities] AS [c0]
+    WHERE [c].[Id] = [c0].[CountryId]) AS [NumberOfCities]
+FROM [Countries] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2023-02-13 19:02:56.635 +02:00 [INF] Executing ObjectResult, writing value of type 'WorldCitiesApi.Data.ApiResult`1[[WorldCitiesApi.Models.CountryDTO, WorldCitiesApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-02-13 19:02:56.646 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CountryController.GetAllCountries (WorldCitiesApi) in 2042.3045ms
+2023-02-13 19:02:56.647 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CountryController.GetAllCountries (WorldCitiesApi)'
+2023-02-13 19:02:56.649 +02:00 [INF] HTTP GET /api/Country/GetAllCountries responded 200 in 2076.9007 ms
+2023-02-13 19:02:56.657 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/api/Country/GetAllCountries?pageIndex=0&pageSize=10 - - - 200 - application/json;+charset=utf-8 2093.4544ms
