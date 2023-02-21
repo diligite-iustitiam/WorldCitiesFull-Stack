@@ -1,0 +1,103 @@
+2023-02-15 18:11:43.878 +02:00 [INF] Now listening on: https://localhost:7025
+2023-02-15 18:11:43.902 +02:00 [INF] Now listening on: http://localhost:5025
+2023-02-15 18:11:43.904 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-15 18:11:43.904 +02:00 [INF] Hosting environment: Development
+2023-02-15 18:11:43.904 +02:00 [INF] Content root path: C:\Users\User\source\repos\WorldCities\WorldCitiesApi\
+2023-02-15 18:11:44.434 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger - -
+2023-02-15 18:11:44.505 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger - - - 301 0 - 74.1201ms
+2023-02-15 18:11:44.508 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/index.html - -
+2023-02-15 18:11:44.676 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui-bundle.js - -
+2023-02-15 18:11:44.676 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/swagger-ui-standalone-preset.js - -
+2023-02-15 18:11:44.676 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - -
+2023-02-15 18:11:44.678 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_vs/browserLink - -
+2023-02-15 18:11:44.679 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - - - 200 11998 application/javascript;+charset=utf-8 3.3360ms
+2023-02-15 18:11:44.680 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/index.html - - - 200 - text/html;charset=utf-8 172.1278ms
+2023-02-15 18:11:44.701 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-02-15 18:11:44.702 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 25.9049ms
+2023-02-15 18:11:44.708 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-02-15 18:11:44.708 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 32.8248ms
+2023-02-15 18:11:44.729 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.3546ms
+2023-02-15 18:11:45.209 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - -
+2023-02-15 18:11:45.308 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.0426ms
+2023-02-15 18:12:10.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/api/City/GetAllCities?pageIndex=0&pageSize=10&sortColumn=name&sortOrder=asc - -
+2023-02-15 18:12:10.716 +02:00 [INF] CORS policy execution successful.
+2023-02-15 18:12:10.719 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CityController.GetAllCities (WorldCitiesApi)'
+2023-02-15 18:12:10.740 +02:00 [INF] Route matched with {action = "GetAllCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorldCitiesApi.Data.ApiResult`1[WorldCitiesApi.Models.CityDTO]]] GetAllCities(Int32, Int32, System.String, System.String, System.String, System.String) on controller WorldCitiesApi.Controllers.CityController (WorldCitiesApi).
+2023-02-15 18:12:11.346 +02:00 [WRN] No store type was specified for the decimal property 'Lat' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-15 18:12:11.346 +02:00 [WRN] No store type was specified for the decimal property 'Lon' on entity type 'City'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-02-15 18:12:11.450 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-15 18:12:12.006 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Cities] AS [c]
+2023-02-15 18:12:12.845 +02:00 [INF] Executed DbCommand (175ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t].[CountryId], [c0].[Name] AS [CountryName], [t].[Name_ASCII], [t].[Lat], [t].[Lon]
+FROM (
+    SELECT [c].[Id], [c].[CountryId], [c].[Lat], [c].[Lon], [c].[Name], [c].[Name_ASCII]
+    FROM [Cities] AS [c]
+    ORDER BY [c].[Name]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Countries] AS [c0] ON [t].[CountryId] = [c0].[Id]
+ORDER BY [t].[Name]
+2023-02-15 18:12:12.852 +02:00 [INF] Executing ObjectResult, writing value of type 'WorldCitiesApi.Data.ApiResult`1[[WorldCitiesApi.Models.CityDTO, WorldCitiesApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-02-15 18:12:12.860 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CityController.GetAllCities (WorldCitiesApi) in 2116.4647ms
+2023-02-15 18:12:12.860 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CityController.GetAllCities (WorldCitiesApi)'
+2023-02-15 18:12:12.861 +02:00 [INF] HTTP GET /api/City/GetAllCities responded 200 in 2142.4894 ms
+2023-02-15 18:12:12.863 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/api/City/GetAllCities?pageIndex=0&pageSize=10&sortColumn=name&sortOrder=asc - - - 200 - application/json;+charset=utf-8 2151.1791ms
+2023-02-15 18:12:16.474 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/api/City/GetCityDetails/19706 - -
+2023-02-15 18:12:16.476 +02:00 [INF] CORS policy execution successful.
+2023-02-15 18:12:16.476 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CityController.GetCityDetails (WorldCitiesApi)'
+2023-02-15 18:12:16.477 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/api/Country/GetAllCountries/?pageIndex=0&pageSize=9999&sortColumn=name&sortOrder=asc - -
+2023-02-15 18:12:16.477 +02:00 [INF] CORS policy execution successful.
+2023-02-15 18:12:16.477 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CountryController.GetAllCountries (WorldCitiesApi)'
+2023-02-15 18:12:16.479 +02:00 [INF] Route matched with {action = "GetCityDetails", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorldCities.Application.Cities.Queries.GetCityDetails.CityDetailsVm]] GetCityDetails(Int32) on controller WorldCitiesApi.Controllers.CityController (WorldCitiesApi).
+2023-02-15 18:12:16.481 +02:00 [INF] Route matched with {action = "GetAllCountries", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorldCitiesApi.Data.ApiResult`1[WorldCitiesApi.Models.CountryDTO]]] GetAllCountries(Int32, Int32, System.String, System.String, System.String, System.String) on controller WorldCitiesApi.Controllers.CountryController (WorldCitiesApi).
+2023-02-15 18:12:16.485 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-15 18:12:16.493 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Countries] AS [c]
+2023-02-15 18:12:16.503 +02:00 [INF] Notes Request: GetCityDetailsQuery "00000000-0000-0000-0000-000000000000" {"Id":19706,"$type":"GetCityDetailsQuery"}
+2023-02-15 18:12:16.524 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[ISO2], [c].[ISO3], (
+    SELECT COUNT(*)
+    FROM [Cities] AS [c0]
+    WHERE [c].[Id] = [c0].[CountryId]) AS [NumberOfCities]
+FROM [Countries] AS [c]
+ORDER BY [c].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2023-02-15 18:12:16.528 +02:00 [INF] Executing ObjectResult, writing value of type 'WorldCitiesApi.Data.ApiResult`1[[WorldCitiesApi.Models.CountryDTO, WorldCitiesApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-02-15 18:12:16.531 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CountryController.GetAllCountries (WorldCitiesApi) in 50.3817ms
+2023-02-15 18:12:16.531 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CountryController.GetAllCountries (WorldCitiesApi)'
+2023-02-15 18:12:16.531 +02:00 [INF] HTTP GET /api/Country/GetAllCountries/ responded 200 in 54.0263 ms
+2023-02-15 18:12:16.532 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/api/Country/GetAllCountries/?pageIndex=0&pageSize=9999&sortColumn=name&sortOrder=asc - - - 200 - application/json;+charset=utf-8 54.8666ms
+2023-02-15 18:12:16.539 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-15 18:12:16.561 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CountryId], [c].[Lat], [c].[Lon], [c].[Name], [c].[Name_ASCII]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__request_Id_0
+2023-02-15 18:12:16.601 +02:00 [INF] Executing OkObjectResult, writing value of type 'WorldCities.Application.Cities.Queries.GetCityDetails.CityDetailsVm'.
+2023-02-15 18:12:16.602 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CityController.GetCityDetails (WorldCitiesApi) in 123.5201ms
+2023-02-15 18:12:16.602 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CityController.GetCityDetails (WorldCitiesApi)'
+2023-02-15 18:12:16.602 +02:00 [INF] HTTP GET /api/City/GetCityDetails/19706 responded 200 in 126.3240 ms
+2023-02-15 18:12:16.602 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/api/City/GetCityDetails/19706 - - - 200 - application/json;+charset=utf-8 128.1128ms
+2023-02-15 18:12:16.615 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7025/api/City/IsDupeCity/ - -
+2023-02-15 18:12:16.615 +02:00 [INF] CORS policy execution successful.
+2023-02-15 18:12:16.615 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7025/api/City/IsDupeCity/ - - - 204 - - 0.5844ms
+2023-02-15 18:12:16.616 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7025/api/City/IsDupeCity/ application/json 69
+2023-02-15 18:12:16.617 +02:00 [INF] CORS policy execution successful.
+2023-02-15 18:12:16.617 +02:00 [INF] Executing endpoint 'WorldCitiesApi.Controllers.CityController.IsDupeCity (WorldCitiesApi)'
+2023-02-15 18:12:16.617 +02:00 [INF] Route matched with {action = "IsDupeCity", controller = "City"}. Executing controller action with signature Boolean IsDupeCity(WorldCities.Domain.City) on controller WorldCitiesApi.Controllers.CityController (WorldCitiesApi).
+2023-02-15 18:12:16.628 +02:00 [INF] Entity Framework Core 6.0.13 initialized 'WorldCitiesDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-15 18:12:16.648 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__city_Name_0='?' (Size = 4000), @__city_Lat_1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__city_Lon_2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__city_CountryId_3='?' (DbType = Int32), @__city_Id_4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE (((([c].[Name] = @__city_Name_0) AND ([c].[Lat] = @__city_Lat_1)) AND ([c].[Lon] = @__city_Lon_2)) AND ([c].[CountryId] = @__city_CountryId_3)) AND ([c].[Id] <> @__city_Id_4)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-02-15 18:12:16.650 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Boolean'.
+2023-02-15 18:12:16.650 +02:00 [INF] Executed action WorldCitiesApi.Controllers.CityController.IsDupeCity (WorldCitiesApi) in 32.6463ms
+2023-02-15 18:12:16.650 +02:00 [INF] Executed endpoint 'WorldCitiesApi.Controllers.CityController.IsDupeCity (WorldCitiesApi)'
+2023-02-15 18:12:16.650 +02:00 [INF] HTTP POST /api/City/IsDupeCity/ responded 200 in 33.6447 ms
+2023-02-15 18:12:16.650 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7025/api/City/IsDupeCity/ application/json 69 - 200 - application/json;+charset=utf-8 33.9024ms

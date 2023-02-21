@@ -1,0 +1,25 @@
+2023-02-21 12:45:07.580 +02:00 [INF] Entity Framework Core 6.0.14 initialized 'APIAuthorizationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-21 12:45:14.890 +02:00 [INF] Entity Framework Core 6.0.14 initialized 'APIAuthorizationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.13' with options: None
+2023-02-21 12:45:15.174 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-02-21 12:45:15.211 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [APIAuthorization] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-02-21 12:45:15.226 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [APIAuthorization];
+2023-02-21 12:45:49.189 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-21 12:45:49.302 +02:00 [INF] Now listening on: https://localhost:7025
+2023-02-21 12:45:49.302 +02:00 [INF] Now listening on: http://localhost:5025
+2023-02-21 12:45:49.304 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-21 12:45:49.304 +02:00 [INF] Hosting environment: Development
+2023-02-21 12:45:49.304 +02:00 [INF] Content root path: C:\Users\User\source\repos\WorldCities\WorldCitiesApi\
+2023-02-21 12:45:49.503 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/index.html - -
+2023-02-21 12:45:49.647 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/index.html - - - 200 - text/html;charset=utf-8 146.4468ms
+2023-02-21 12:45:49.649 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - -
+2023-02-21 12:45:49.649 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/_vs/browserLink - -
+2023-02-21 12:45:49.652 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_framework/aspnetcore-browser-refresh.js - - - 200 11998 application/javascript;+charset=utf-8 2.7198ms
+2023-02-21 12:45:49.660 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.0987ms
+2023-02-21 12:45:49.746 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - -
+2023-02-21 12:45:49.852 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7025/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 106.8066ms
